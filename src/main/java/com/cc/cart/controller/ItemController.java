@@ -17,28 +17,26 @@ import com.cc.cart.services.ItemServices;
 
 @Controller
 public class ItemController {
-	
-	@Autowired
-	ItemServices itemServices;
-	
+
+    @Autowired
+    ItemServices itemServices;
+
     @GetMapping("/listItems")
     @ResponseBody
-    public List<ItemModel> listItems(@RequestParam(name="name", required=false, defaultValue="Java Fan") String name) {
+    public List<ItemModel> listItems(@RequestParam(name = "name", required = false, defaultValue = "Java Fan") final String name) {
         return itemServices.listItems();
     }
-    
 
-	
-	@PostMapping("/addNewItem")
+    @PostMapping("/addNewItem")
     @ResponseBody
-    public ItemAddModel addNewItem(@RequestBody Item newItem) {
-		ItemAddModel itemAddModel;
+    public ItemAddModel addNewItem(@RequestBody final Item newItem) {
+        ItemAddModel itemAddModel;
         try {
-			itemServices.addNewItems(newItem);
-			itemAddModel = new ItemAddModel(newItem.getId(), newItem.getName(), newItem.getPrice(), "New item added successfully");
-		} catch (Exception e) {
-			itemAddModel = new ItemAddModel(0, null, 0, "Failed to add an item");
-			}
-		return itemAddModel;
+            itemServices.addNewItems(newItem);
+            itemAddModel = new ItemAddModel(newItem.getId(), newItem.getName(), newItem.getPrice(), "New item added successfully");
+        } catch (final Exception e) {
+            itemAddModel = new ItemAddModel(0, null, 0, "Failed to add an item");
+        }
+        return itemAddModel;
     }
 }

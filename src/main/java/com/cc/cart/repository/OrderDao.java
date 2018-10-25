@@ -5,9 +5,9 @@ import com.cc.cart.entity.Item;
 
 public interface OrderDao {
 
-	void addOrder(CartOrder order);
-	
-	int getOrderIdByCartId(int cartID);
+    void addOrder(CartOrder order);
 
-	void addOrderDetail(Item eachItem, int orderID);
+    int getOrderIdByCartId(int cartID);
+
+    void addOrderDetail(Item eachItem, int orderID);
 }

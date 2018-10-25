@@ -11,16 +11,16 @@ import org.springframework.stereotype.Repository;
 
 import com.cc.cart.entity.UserDetails;
 
-
 @Repository
 public class UserDaoImpl implements UserDao {
 
-	@PersistenceContext
+    @PersistenceContext
     private EntityManager entityManager;
-	
-	public List<UserDetails> getUserDetails() {
-		Criteria criteria = entityManager.unwrap(Session.class).createCriteria(UserDetails.class);
-		return criteria.list();
-	}
+
+    @Override
+    public List<UserDetails> getUserDetails() {
+        final Criteria criteria = entityManager.unwrap(Session.class).createCriteria(UserDetails.class);
+        return criteria.list();
+    }
 
 }

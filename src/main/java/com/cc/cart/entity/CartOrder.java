@@ -10,31 +10,35 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class CartOrder {
-	
-	public CartOrder(int orderId, int cartGroupId) {
-		super();
-		this.orderId = orderId;
-		this.cartGroupId = cartGroupId;
-	}
-	@Id
-	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int orderId;
-	@Column
-	private int cartGroupId;
-	
-	public int getOrderId() {
-		return orderId;
-	}
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
-	public int getCartGroupId() {
-		return cartGroupId;
-	}
-	public void setCartGroupId(int cartGroupId) {
-		this.cartGroupId = cartGroupId;
-	}
-	
-}
 
+    public CartOrder(final int orderId, final int cartGroupId) {
+        super();
+        this.orderId = orderId;
+        this.cartGroupId = cartGroupId;
+    }
+
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int orderId;
+
+    @Column
+    private int cartGroupId;
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(final int orderId) {
+        this.orderId = orderId;
+    }
+
+    public int getCartGroupId() {
+        return cartGroupId;
+    }
+
+    public void setCartGroupId(final int cartGroupId) {
+        this.cartGroupId = cartGroupId;
+    }
+
+}

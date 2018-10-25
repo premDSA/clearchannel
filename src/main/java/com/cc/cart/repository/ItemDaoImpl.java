@@ -12,37 +12,37 @@ import org.springframework.stereotype.Repository;
 
 import com.cc.cart.entity.Item;
 
-
 @Repository
 public class ItemDaoImpl implements ItemDao {
 
-	@PersistenceContext
+    @PersistenceContext
     private EntityManager entityManager;
-	
-	public List<Item> getAllItem() {
-		Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Item.class);
-		return criteria.list();
-	}
 
-	@Override
-	public void addNewItem(Item newItem) {
-		entityManager.unwrap(Session.class).save(newItem);
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public List<Item> getAllItem() {
+        final Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Item.class);
+        return criteria.list();
+    }
 
-	@Override
-	public List<Item> getAllItemByID(List<Integer> itemIdList) {
-		Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Item.class);
-		criteria.add(Restrictions.in("id", itemIdList));
-		return criteria.list();
-	}
+    @Override
+    public void addNewItem(final Item newItem) {
+        entityManager.unwrap(Session.class).save(newItem);
+        // TODO Auto-generated method stub
 
-	@Override
-	public Item getItemByID(int itemId) {
-		Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Item.class);
-		criteria.add(Restrictions.eq("id", itemId));
-		return (Item) criteria.uniqueResult();
-	}
+    }
+
+    @Override
+    public List<Item> getAllItemByID(final List<Integer> itemIdList) {
+        final Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Item.class);
+        criteria.add(Restrictions.in("id", itemIdList));
+        return criteria.list();
+    }
+
+    @Override
+    public Item getItemByID(final int itemId) {
+        final Criteria criteria = entityManager.unwrap(Session.class).createCriteria(Item.class);
+        criteria.add(Restrictions.eq("id", itemId));
+        return (Item) criteria.uniqueResult();
+    }
 
 }

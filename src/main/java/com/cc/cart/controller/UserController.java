@@ -12,19 +12,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.cc.cart.entity.UserDetails;
 import com.cc.cart.services.UserService;
 
-
-
 @Controller
 public class UserController {
-	
-	@Autowired
-	private UserService userService;
-	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ResponseEntity<List<UserDetails>> userDetails() {
-        
-		List<UserDetails> userDetails = userService.getUserDetails();
-		return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
-	}
+
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public ResponseEntity<List<UserDetails>> userDetails() {
+
+        final List<UserDetails> userDetails = userService.getUserDetails();
+        return new ResponseEntity<List<UserDetails>>(userDetails, HttpStatus.OK);
+    }
 
 }

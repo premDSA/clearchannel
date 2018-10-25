@@ -4,6 +4,6 @@ import com.cc.cart.entity.CartOrder;
 
 public interface OrderServices {
 
-	void addOrder(CartOrder order);
+    void addOrder(CartOrder order);
 
 }

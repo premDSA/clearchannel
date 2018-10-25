@@ -2,40 +2,41 @@ package com.cc.cart.bean;
 
 public class ItemModel {
 
-private int id;
-private String name;
-private int price;
+    private int id;
 
+    private String name;
 
+    private int price;
 
-public ItemModel(int id, String name, int price) {
-	super();
-	this.id = id;
-	this.name = name;
-	this.price = price;
-}
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
+    public ItemModel(final int id, final String name, final int price) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
 
-public String getName() {
-	return name;
-}
+    public int getId() {
+        return id;
+    }
 
-public void setName(String name) {
-	this.name = name;
-}
-public int getPrice() {
-	return price;
-}
-public void setPrice(int price) {
-	this.price = price;
-}
+    public void setId(final int id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(final String name) {
+        this.name = name;
+    }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(final int price) {
+        this.price = price;
+    }
 
 }

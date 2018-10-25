@@ -12,28 +12,28 @@ import com.cc.cart.repository.ItemDao;
 import com.cc.cart.repository.OrderDao;
 
 @Component
-public class OrderServicesImpl implements OrderServices{
+public class OrderServicesImpl implements OrderServices {
 
-	@Autowired
-	private OrderDao orderDao;
-	
-	@Autowired
-	private ItemDao itemDao;
-	
-	@Autowired
-	private CartDao cartDao;
-	
-	@Override
-	public void addOrder(CartOrder order) {
-		orderDao.addOrder(order);
-//		int orderID = orderDao.getOrderIdByCartId(order.getCartGroupId());
-		List<Integer> itemIdList = cartDao.listAllItemsInCart(order.getCartGroupId());
-		List<Item> itemList = itemDao.getAllItemByID(itemIdList);
-		for(Item eachItem: itemList) {
-			orderDao.addOrderDetail(eachItem, 1);
-		}
-		// TODO Auto-generated method stub
-		
-	}
+    @Autowired
+    private OrderDao orderDao;
+
+    @Autowired
+    private ItemDao itemDao;
+
+    @Autowired
+    private CartDao cartDao;
+
+    @Override
+    public void addOrder(final CartOrder order) {
+        orderDao.addOrder(order);
+        // int orderID = orderDao.getOrderIdByCartId(order.getCartGroupId());
+        final List<Integer> itemIdList = cartDao.listAllItemsInCart(order.getCartGroupId());
+        final List<Item> itemList = itemDao.getAllItemByID(itemIdList);
+        for (final Item eachItem : itemList) {
+            orderDao.addOrderDetail(eachItem, 1);
+        }
+        // TODO Auto-generated method stub
+
+    }
 
 }
